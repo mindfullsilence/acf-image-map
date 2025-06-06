@@ -221,7 +221,7 @@ class ImageMapField extends \acf_field
      */
     protected function choices(): array
     {
-        return array_combine(
+        $choices = array_combine(
             array_map(function (ShapeContract $shape) {
                 return $shape->getName();
             }, $this->shapes),
@@ -229,5 +229,11 @@ class ImageMapField extends \acf_field
                 return $shape->getLabel();
             }, $this->shapes)
         );
+
+        if ( ! $choices) {
+            $choices = [];
+        }
+
+        return $choices;
     }
 }
