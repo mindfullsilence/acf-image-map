@@ -230,7 +230,7 @@ class ImageMapField extends \acf_field
             }, $this->shapes)
         );
 
-        if ( ! $choices) {
+        if (!$choices) {
             $choices = [];
         }
 
